@@ -1,0 +1,112 @@
+<style>
+    body {
+    font-size: 15px;
+    font-family: arial, sans-serif;
+    }
+    
+    a {
+    text-decoration: none;
+    }
+    
+    a:hover {
+    text-decoration: underline;
+    }
+    
+    button {
+    font-weight: bold;
+    font-family: arial;
+    }
+    
+    .top-toolbar {
+    height: 50px;
+    }
+    
+    .top-toolbar nav {
+    float:right;
+    margin: 7px 21px;
+    }
+    
+    .top-toolbar nav a {
+    margin: 3px 6px;
+    color: #404040;
+    }
+    
+    .top-toolbar nav a:hover {
+    color: #111111;
+    }
+    
+    .top-toolbar nav button {
+    padding: 7px 12px;
+    border-radius: 2px;
+    background-color: #4585F1;
+    color: white;
+    border: 1px darkblue;
+    font-size: 9.5pt;
+    }
+    
+    .search {
+    text-align: center;
+    clear: both;
+    margin: 11% 0 0 0;
+    }
+    
+    .search input {
+    width: 570px;
+    border: 1px solid #D8D8D8;
+    padding: 5px;
+    font-size: 11pt;
+    }
+    
+    .search-bar {
+    max-width: 80%;
+    }
+
+    label{
+        font-size: 100px;
+    }
+    
+    .search input:focus {
+    outline: none;
+    border: 1px solid #4285F4;
+    }
+    
+    .search button {
+    margin: 14px 7px 0 5px;
+    padding: 7px 8px;
+    border-radius: 2px;
+    border: 1px solid #D0D0D0;
+    color: #444444;
+    } 
+
+    .oh{
+        margin-right: 0px;
+    }
+    </style>
+
+    <div class="top-toolbar">
+    <nav>
+    <a href="#">Jmail</a>
+    <a href="#">Imágenes</a>
+    <a href="#"><button class="signin">Iniciar sesión</button></a>
+    </nav>
+    </div>
+    <div class="search">
+    <div class="a" ><label id="joogle" ><FONT COLOR="#461CA7">J</FONT><FONT COLOR="#8C2827">O</FONT><FONT COLOR="#CDCD35">O</FONT><FONT COLOR="#461CA7">G</FONT><FONT COLOR="#2A7D33">L</FONT><FONT COLOR="#8C2827">E</FONT></label><br></div>
+    
+    <form method="POST" action="search">
+    {% csrf_token %}
+        <input class="search-bar" type="text" name="search" autofocus x-webkit-speech/>
+        <div class="search-button">
+        <a href="#"><button type="submit">Buscar</button></a>
+    </form>
+    </div>
+    {% if final_result %}
+    <b style="padding-left: 50px; padding-right: 50px; color: #646464"> Resultados...</b>
+    {% for result in final_result %}
+    <div style = "padding-left: 50px; padding-right: 50px; margin-right: 0" class = "oh">
+        <h3 style = "color: blue;"><a href ="{{result.1}}">{{ result.0}}</a></h3>
+        <h3 style = "color: green;">{{result.1}}</h3>
+        <h3>{{result.2}}</h3>
+    </div><br><br>
+    {% endfor %}
+    {% endif %}

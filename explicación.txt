@@ -1,0 +1,16 @@
+¡¡¡GOOGLE NO PERMITE WEB SCRAPPING, LOS RESULTADOS SON DE ASK.COM!!!
+
+
+#Configuración de plantillas ----------------
+Es necesario especificar la url en la que el programa podrá localizar el index que usaremos para el frontend.
+Para ello se crean/configuran los archivos 'urls.py' de las carpetas buscar y joogle. 
+También renderizamos esa plantilla en el archivo 'views.py'
+
+#Peticiones a la API desde el frontend-------
+web Scrapping nos permite hacer peticiones a la API, correspondientes a lo que estemos buscando en nuestra barra del index,
+para ello tendremos que crear un formulario con método de tipo post. La acción del método será:
+    guardar el contenido del cuadro de texto (lo que busca el usuario)
+    concatenar la url inicial de ask.com con lo que busca el usuario
+    hacer un request para obtener los resultados de la búsqueda en ask.com
+    soup es solo para fines visuales, que no se vea todo empaquetado sino que tenga identado
+    result_listings devuelve cada 'div' con su propio valor de id 

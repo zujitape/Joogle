@@ -1,0 +1,1 @@
+web gunicorn joogle.wsgi:application --log-file -
